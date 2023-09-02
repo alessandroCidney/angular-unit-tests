@@ -49,4 +49,20 @@ describe('BankingComponent', () => {
     expect(component.getCarteira).toEqual(0)
     expect(component.getPoupanca).toEqual(60)
   })
+
+  it(`
+    (U) setSacar(): should do nothing if the value isn't a number
+    or if poupanca < value
+  `, () => {
+    expect(component.setSacar('a')).toBeUndefined()
+    expect(component.setSacar('1000')).toBeUndefined()
+  })
+
+  it(`
+    (U) setDepositar(): should do nothing if the value isn't a number
+    or if carteira < value
+  `, () => {
+    expect(component.setDepositar('a')).toBeUndefined()
+    expect(component.setDepositar('1000')).toBeUndefined()
+  })
 });
