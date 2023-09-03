@@ -8,30 +8,15 @@ import { ListInvestimentsService } from '../../services/list-investiments.servic
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  public investiments: Array<Investiments> = [
-    {
-      name: 'Bank 1',
-      value: 100
-    },
-    {
-      name: 'Bank 2',
-      value: 100
-    },
-    {
-      name: 'Bank 3',
-      value: 100
-    },
-    {
-      name: 'Bank 4',
-      value: 100
-    },
-  ]
+  public investiments!: Array<Investiments>
 
   constructor (private listInvestimentsService: ListInvestimentsService) {}
 
   ngOnInit(): void {
     this.listInvestimentsService.list().subscribe(
-      res => console.log(res)
+      res => {
+        this.investiments = res
+      }
     )
   }
 }
