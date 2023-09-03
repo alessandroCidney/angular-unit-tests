@@ -3,13 +3,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BankingComponent } from './banking.component';
 import { ListComponent } from '../investiments/components/list/list.component'
 
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing'
+
 describe('BankingComponent', () => {
   let component: BankingComponent;
   let fixture: ComponentFixture<BankingComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BankingComponent, ListComponent]
+      declarations: [BankingComponent, ListComponent],
+      imports: [HttpClientTestingModule]
     });
     fixture = TestBed.createComponent(BankingComponent);
     component = fixture.componentInstance;

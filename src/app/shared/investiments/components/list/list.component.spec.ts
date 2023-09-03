@@ -2,13 +2,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListComponent } from './list.component';
 
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing'
+
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ListComponent]
+      declarations: [ListComponent],
+      imports: [HttpClientTestingModule],
     });
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
