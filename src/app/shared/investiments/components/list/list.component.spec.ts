@@ -46,16 +46,21 @@ describe('ListComponent', () => {
     expect(component.investiments[0].name).toEqual('Bank 1')
     expect(component.investiments[0].value).toEqual(100)
 
-    expect(component.investiments[4].name).toEqual('Bank 4')
+    expect(component.investiments[4].name).toEqual('Bank 5')
     expect(component.investiments[4].value).toEqual(100)
   })
 
   it('(I) should list investiments', () => {
+    spyOn(service, 'list').and.returnValue(of(mockList))
+
+    component.ngOnInit()
+    fixture.detectChanges()
+
     const investiments: HTMLElement[] = fixture.debugElement.nativeElement
       .querySelectorAll('.list-item')
 
-    expect(investiments.length).toEqual(4)
+    expect(investiments.length).toEqual(5)
     expect(investiments[0].textContent?.trim()).toEqual('Bank 1 | 100')
-    expect(investiments[3].textContent?.trim()).toEqual('Bank 4 | 100')
+    expect(investiments[4].textContent?.trim()).toEqual('Bank 5 | 100')
   })
 });
